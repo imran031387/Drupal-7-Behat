@@ -1,0 +1,141 @@
+default:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+
+  extensions:
+    Behat\MinkExtension:
+      goutte: ~
+      selenium2: ~
+      base_url: http://www.drupal-behat.local.com
+    Drupal\DrupalExtension:
+      blackbox: ~
+      region_map:
+              footer: "#footer"
+      api_driver: 'drupal'
+      drupal:
+         drupal_root: /Users/mimran/Projects/drupal-behat
+      drush:
+         root: /Users/mimran/Projects/drupal-behat
+
+      region_map:
+        right sidebar: "#aside .region-sidebar-second"
+        content: "#content"
+        # Header regions
+        left header: "#header-left"
+        top header: "#nav-header"
+        right header: "#header-right"
+        bottom header: "#nav-masthead"
+        # frontpage content regions
+        top middle content: "#sites-with-drupal"
+        top right content: "#develop-with-drupal"
+        bottom right content: "#community-updates"
+        middle content: "#front-drupal-stats"
+        # Footer region
+        footer: "#footer"
+        # Pager region
+        pager: ".pager"
+
+
+phantomjs:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+
+  extensions:
+    Behat\MinkExtension:
+      goutte: ~
+      selenium2:
+        wd_host: http://127.0.0.1:4445/wd/hub
+      base_url: http://www.drupal-behat.local.com
+    Drupal\DrupalExtension:
+      blackbox: ~
+      region_map:
+              footer: "#footer"
+      api_driver: 'drupal'
+      drupal:
+         drupal_root: /Users/mimran/Projects/drupal-behat
+      drush:
+         root: /Users/mimran/Projects/drupal-behat
+
+      region_map:
+        right sidebar: "#aside .region-sidebar-second"
+        content: "#content"
+        # Header regions
+        left header: "#header-left"
+        top header: "#nav-header"
+        right header: "#header-right"
+        bottom header: "#nav-masthead"
+        # frontpage content regions
+        top middle content: "#sites-with-drupal"
+        top right content: "#develop-with-drupal"
+        bottom right content: "#community-updates"
+        middle content: "#front-drupal-stats"
+        # Footer region
+        footer: "#footer"
+        # Pager region
+        pager: ".pager"
+
+html:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+  # Settings for BehatHtmlFormatter plugin
+  formatters:
+    html:
+      output_path: %paths.base%/build/html/behat
+  extensions:
+    Behat\MinkExtension:
+      goutte: ~
+      selenium2:
+        wd_host: http://127.0.0.1:4445/wd/hub
+      base_url: http://www.drupal-behat.local.com
+    Drupal\DrupalExtension:
+      blackbox: ~
+      region_map:
+              footer: "#footer"
+      api_driver: 'drupal'
+      drupal:
+         drupal_root: /Users/mimran/Projects/drupal-behat
+      drush:
+         root: /Users/mimran/Projects/drupal-behat
+
+      region_map:
+        right sidebar: "#aside .region-sidebar-second"
+        content: "#content"
+        # Header regions
+        left header: "#header-left"
+        top header: "#nav-header"
+        right header: "#header-right"
+        bottom header: "#nav-masthead"
+        # frontpage content regions
+        top middle content: "#sites-with-drupal"
+        top right content: "#develop-with-drupal"
+        bottom right content: "#community-updates"
+        middle content: "#front-drupal-stats"
+        # Footer region
+        footer: "#footer"
+        # Pager region
+        pager: ".pager"
+    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+      name: html
+      renderer: Twig,Behat2
+      file_name: Index
+      print_args: true
+      print_outp: true
+      loop_break: true
